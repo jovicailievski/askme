@@ -6,9 +6,7 @@ import com.askme.askme.service.UserRoleService;
 import com.askme.askme.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -33,8 +31,12 @@ public class UserRestResource {
         UserRole ur = new UserRole();
         ur.setName("ROLE_ADMIN");
         userRoleService.save(ur);
-        Optional<UserRole> uro = userRoleService.findById(1L);
-        ur = uro.get();
+        ur = new UserRole();
+        ur.setName("ROLE_MEMBER");
+        userRoleService.save(ur);
+
+
+        ur = userRoleService.findById(1L);
         u.setUserRole(ur);
         u.setUsername("exfled");
         u.setPassword(passwordEncoder.encode("exfled123"));
@@ -44,5 +46,15 @@ public class UserRestResource {
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.findAll();
+    }
+
+    @PostMapping("/register")
+    public User createNewUser(@RequestParam("username") String username, @RequestParam("password") String password){
+        UserRole ur = userRoleService.findById(2l);
+        User u = new User();
+        u.setUsername(username);
+        u.setPassword(passwordEncoder.encode(password));
+        u.setUserRole(ur);
+        return userService.save(u);
     }
 }

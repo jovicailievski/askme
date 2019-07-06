@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface UserRoleService {
     UserRole save(UserRole o);
     List<UserRole> findAll();
-    Optional<UserRole> findById(Long id);
+    UserRole findById(Long id);
 
 }

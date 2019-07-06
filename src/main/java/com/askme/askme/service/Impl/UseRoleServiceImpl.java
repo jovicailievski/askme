@@ -1,5 +1,6 @@
 package com.askme.askme.service.Impl;
 
+import com.askme.askme.exceptions.UserRoleNotFoundException;
 import com.askme.askme.models.UserRole;
 import com.askme.askme.repository.jpa.JpaUserRoleRepository;
 import com.askme.askme.service.UserRoleService;
@@ -27,7 +28,11 @@ public class UseRoleServiceImpl implements UserRoleService{
     }
 
     @Override
-    public Optional<UserRole> findById(Long id) {
-        return userRoleRepository.findById(id);
+    public UserRole findById(Long id) {
+       Optional<UserRole> ur = userRoleRepository.findById(id);
+       if(!ur.isPresent()){
+           throw  new UserRoleNotFoundException();
+       }
+       return ur.get();
     }
 }
