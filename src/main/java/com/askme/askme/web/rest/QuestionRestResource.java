@@ -2,7 +2,10 @@ package com.askme.askme.web.rest;
 
 import com.askme.askme.models.Answer;
 import com.askme.askme.models.Question;
+import com.askme.askme.service.QuestionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +16,8 @@ import java.util.List;
 @RequestMapping("/rest")
 public class QuestionRestResource {
 
-    private List<Question> questionList;
+    @Autowired
+    private QuestionService questionService;
 
 //    @PostConstruct
 //    private void init(){
@@ -29,7 +33,12 @@ public class QuestionRestResource {
 //    }
 
     @GetMapping("/questions")
-    private List<Question> getAllQuestions(){
-        return questionList;
+    public List<Question> getAllQuestions(){
+        return  questionService.findAll();
+    }
+
+    @GetMapping("/question/{id}")
+    public Question getQuestionById(@PathVariable("id") Long id){
+        return questionService.findById(id);
     }
 }
