@@ -1,5 +1,6 @@
 package com.askme.askme.service.Impl;
 
+import com.askme.askme.exceptions.UserNotFoundException;
 import com.askme.askme.models.User;
 import com.askme.askme.models.UserRole;
 import com.askme.askme.repository.jpa.JpaUserRepository;
@@ -13,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -44,6 +46,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAll() {
        return userRepository.findAll();
+    }
+
+    @Override
+    public User findById(Long id) {
+        Optional<User> ou = userRepository.findById(id);
+        if(!ou.isPresent()){
+            throw new UserNotFoundException();
+        }
+        return ou.get();
     }
 
 

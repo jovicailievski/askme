@@ -48,6 +48,11 @@ public class UserRestResource {
         return userService.findAll();
     }
 
+    @GetMapping("/user/{id}")
+    public User getUserById(@PathVariable("id") Long id){
+       return userService.findById(id);
+    }
+
     @PostMapping("/register")
     public User createNewUser(@RequestParam("username") String username, @RequestParam("password") String password){
         UserRole ur = userRoleService.findById(2l);
