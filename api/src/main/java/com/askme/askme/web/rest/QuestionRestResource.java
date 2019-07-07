@@ -4,10 +4,7 @@ import com.askme.askme.models.Answer;
 import com.askme.askme.models.Question;
 import com.askme.askme.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -41,4 +38,11 @@ public class QuestionRestResource {
     public Question getQuestionById(@PathVariable("id") Long id){
         return questionService.findById(id);
     }
+
+//    @PostMapping("/question/ask")
+//    public Question askQUestion(@RequestParam("title") String title,
+//                                @RequestParam("description") String description,
+//                                @RequestParam("anonymous") boolean anonymous){
+//
+//    }
 }

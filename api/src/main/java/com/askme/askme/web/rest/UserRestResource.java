@@ -1,10 +1,15 @@
 package com.askme.askme.web.rest;
 
+
+import java.security.Principal;
 import com.askme.askme.models.User;
 import com.askme.askme.models.UserRole;
 import com.askme.askme.service.UserRoleService;
 import com.askme.askme.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,13 +41,14 @@ public class UserRestResource {
         userRoleService.save(ur);
 
 
-        ur = userRoleService.findById(1L);
+        ur = userRoleService.findById(2L);
         u.setUserRole(ur);
-        u.setUsername("exfled");
-        u.setPassword(passwordEncoder.encode("exfled123"));
+        u.setUsername("anonymous");
+        u.setPassword(passwordEncoder.encode("anonymous"));
         userService.save(u);
     }
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.findAll();
@@ -53,6 +59,16 @@ public class UserRestResource {
        return userService.findById(id);
     }
 
+//    @PostMapping("/login")
+//    public boolean login(@RequestParam("username") String username, @RequestParam("password") String password) {
+//        UserDetails ud = userService.loadUserByUsername(username);
+//        return ud.getPassword().equals(passwordEncoder.encode(password));
+//    }
+
+    @GetMapping("/username")
+    public String currentUserName(Authentication authentication) {
+        return authentication.getName();
+    }
     @PostMapping("/register")
     public User createNewUser(@RequestParam("username") String username, @RequestParam("password") String password){
         UserRole ur = userRoleService.findById(2l);

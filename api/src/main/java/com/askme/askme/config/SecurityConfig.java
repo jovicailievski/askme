@@ -39,17 +39,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**","/**/*")
                 .permitAll()
                 .anyRequest()
-                .authenticated();
-//                .and()
-//                .formLogin()
-//                .loginPage("/login-page")
-//                .defaultSuccessUrl("/device/")
-//                .failureUrl("/login-page")
-//                .permitAll()
-//                .and()
-//                .logout()
-//                .logoutUrl("/logout").permitAll()
-//                .logoutSuccessUrl("/login-page");
+                .authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/rest/user")
+                .failureUrl("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logout").permitAll()
+                .logoutSuccessUrl("/login");
 
     }
 }

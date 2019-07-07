@@ -36,7 +36,7 @@ public class AskMeAuthenticationProvider implements AuthenticationProvider {
             throw new UsernameNotFoundException("Username invalid");
         }
 
-        Boolean passwordsEqual = passwordEncoder.matches(password,user.getPassword());
+        Boolean passwordsEqual = passwordEncoder.matches(password, user.getPassword());
         if (!passwordsEqual) {
             throw new UsernameNotFoundException("Password invalid");
         }
