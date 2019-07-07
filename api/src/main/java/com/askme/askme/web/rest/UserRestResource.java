@@ -59,11 +59,11 @@ public class UserRestResource {
        return userService.findById(id);
     }
 
-//    @PostMapping("/login")
-//    public boolean login(@RequestParam("username") String username, @RequestParam("password") String password) {
-//        UserDetails ud = userService.loadUserByUsername(username);
-//        return ud.getPassword().equals(passwordEncoder.encode(password));
-//    }
+    @PostMapping("/login")
+    public boolean login(@RequestParam("username") String username, @RequestParam("password") String password) {
+        UserDetails ud = userService.loadUserByUsername(username);
+        return ud.getPassword().equals(passwordEncoder.encode(password));
+    }
 
     @GetMapping("/username")
     public String currentUserName(Authentication authentication) {
