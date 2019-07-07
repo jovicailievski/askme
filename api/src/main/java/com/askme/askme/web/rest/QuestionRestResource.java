@@ -2,6 +2,7 @@ package com.askme.askme.web.rest;
 
 import com.askme.askme.models.Answer;
 import com.askme.askme.models.Question;
+import com.askme.askme.models.User;
 import com.askme.askme.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -39,10 +40,11 @@ public class QuestionRestResource {
         return questionService.findById(id);
     }
 
-//    @PostMapping("/question/ask")
-//    public Question askQUestion(@RequestParam("title") String title,
-//                                @RequestParam("description") String description,
-//                                @RequestParam("anonymous") boolean anonymous){
-//
-//    }
+    @PostMapping("/question")
+    public Question askQUestion(@RequestBody Question question){
+        User u = new User();
+        u.setId(1l);
+        question.setUser(u);
+        return questionService.save(question);
+    }
 }

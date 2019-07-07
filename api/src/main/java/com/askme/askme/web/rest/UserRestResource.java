@@ -17,6 +17,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/rest")
 public class UserRestResource {
@@ -48,7 +49,7 @@ public class UserRestResource {
         userService.save(u);
     }
 
-    @PreAuthorize("isAuthenticated()")
+//    @PreAuthorize("isAuthenticated()")
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.findAll();
@@ -57,12 +58,6 @@ public class UserRestResource {
     @GetMapping("/user/{id}")
     public User getUserById(@PathVariable("id") Long id){
        return userService.findById(id);
-    }
-
-    @PostMapping("/login")
-    public boolean login(@RequestParam("username") String username, @RequestParam("password") String password) {
-        UserDetails ud = userService.loadUserByUsername(username);
-        return ud.getPassword().equals(passwordEncoder.encode(password));
     }
 
     @GetMapping("/username")
