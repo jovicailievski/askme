@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
+  topics=["Angular","React","Vue"];// Zemi categorii
+
   constructor() { }
 
   ngOnInit() {
