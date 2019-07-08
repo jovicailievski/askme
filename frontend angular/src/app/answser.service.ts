@@ -13,6 +13,6 @@ export class AnswserService {
 
 
   addAnswer(answer: IAnswer){
-    this._http.post<any>(this._urlAddAnswer, answer);
+    return this._http.post<any>(this._urlAddAnswer, answer);
   }
 }

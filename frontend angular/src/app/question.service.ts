@@ -9,15 +9,19 @@ import { Observable } from 'rxjs';
 })
 export class QuestionService {
   _urlGetQuestions="http://localhost:8080/rest/questions";
-  _urlAddQuestion ="http://localhost:8080/rest/question";
   _baseUrl =  "http://localhost:8080/rest/question/";
 
   constructor( private http: HttpClient) { }
  
 
   addQuestion( question: IQuestion){
-   return this.http.post<any>(this._urlAddQuestion,question);
+   return this.http.post<any>(this._baseUrl,question);
   }
+
+  getQuestionById( id:number):Observable<IQuestion>{
+    return this.http.get<IQuestion>(this._baseUrl + id);
+  }
+
   getQuestionAnswers(id: number):Observable<IAnswer[]>{
     return this.http.get<IAnswer[]>(this._baseUrl + id + "/answers");
   }

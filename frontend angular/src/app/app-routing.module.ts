@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: '',redirectTo: 'content', pathMatch: 'full'},
   {path: 'categories', component: CategoryprobaComponent},
   {path: 'listquestions', component: ListQuestionsComponent},
-  {path: 'listquestions/:id', component: QuestionDetailsComponent},
+  {path: 'question/:id', component: QuestionDetailsComponent},
   {path: 'addquestion', component: AddQuestionComponent},
   {path: 'register', component:RegisterComponent },
   {path: 'content', component: ContentComponent},

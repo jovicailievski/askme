@@ -19,7 +19,7 @@ export class ListQuestionsComponent implements OnInit {
   }
 
   onSelect(question){
-       this.router.navigate(['/listquestions',question.id]);
+       this.router.navigate(['/question',question.id]);
   }
 
 }
