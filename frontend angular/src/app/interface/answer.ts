@@ -2,11 +2,11 @@ import { IQuestion } from './question';
 import { IUser } from './user';
 import { IVote } from './vote';
 
-export interface IAnswer{
-    id: number,
-    description: string,
-    question: IQuestion,
-    user:IUser,
-    votes: Array<IVote>
-    
+export class IAnswer{
+    public id: number;
+    public description: string;
+    public question: IQuestion;
+    public user:IUser;
+    public votes: Array<IVote>;
+    constructor(){}
 }

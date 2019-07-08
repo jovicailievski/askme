@@ -8,9 +8,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class QuestionService {
-  
-  _urlAddQuestion ="http://localhost:8080/rest/question"
-  _baseUrl =  "http://localhost:8080/rest/question/"
+  _urlGetQuestions="http://localhost:8080/rest/questions";
+  _urlAddQuestion ="http://localhost:8080/rest/question";
+  _baseUrl =  "http://localhost:8080/rest/question/";
+
   constructor( private http: HttpClient) { }
  
 
@@ -18,7 +19,10 @@ export class QuestionService {
    return this.http.post<any>(this._urlAddQuestion,question);
   }
   getQuestionAnswers(id: number):Observable<IAnswer[]>{
-    return this.http.get<IAnswer[]>(this._baseUrl + id + "/answers")
+    return this.http.get<IAnswer[]>(this._baseUrl + id + "/answers");
+  }
+  getQuestions():Observable<IQuestion[]>{
+   return this.http.get<IQuestion[]>(this._urlGetQuestions);
   }
 
 }

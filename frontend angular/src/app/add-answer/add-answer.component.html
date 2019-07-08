@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+         <hr>
+        <div class="form-group">
+            <label>Describe Answer:</label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="answer.description">
+           </div>
+        
+
+
+        <button class="btn btn-primary" type="submit">Answer</button>
+
+      </form>

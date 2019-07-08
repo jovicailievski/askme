@@ -12,6 +12,11 @@ import { RegisterComponent } from './register/register.component';
 import { CategoryService } from './category.service';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { QuestionService } from './question.service';
+import { AnswserService } from './answser.service';
+import { AddAnswerComponent } from './add-answer/add-answer.component';
+import { ListQuestionsComponent } from './list-questions/list-questions.component';
+import { QuestionDetailsComponent } from './question-details/question-details.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,10 @@ import { QuestionService } from './question.service';
     CategoryprobaComponent,
     RegisterComponent,
     AddQuestionComponent,
+    AddAnswerComponent,
+    ListQuestionsComponent,
+    QuestionDetailsComponent,
+    PagenotfoundComponent,
 
   ],
   imports: [
@@ -30,7 +39,7 @@ import { QuestionService } from './question.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [CategoryService,QuestionService],
+  providers: [CategoryService,QuestionService,AnswserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
