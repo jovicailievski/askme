@@ -10,6 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { CategoryprobaComponent } from './categoryproba/categoryproba.component';
 import { RegisterComponent } from './register/register.component';
 import { CategoryService } from './category.service';
+import { AddQuestionComponent } from './add-question/add-question.component';
+import { QuestionService } from './question.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { CategoryService } from './category.service';
     ProfileComponent,
     CategoryprobaComponent,
     RegisterComponent,
+    AddQuestionComponent,
 
   ],
   imports: [
@@ -27,7 +30,7 @@ import { CategoryService } from './category.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [CategoryService],
+  providers: [CategoryService,QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

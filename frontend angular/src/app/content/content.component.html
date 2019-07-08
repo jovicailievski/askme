@@ -5,39 +5,12 @@
       1 width
     </div>
     <div class="col-sm-9">
-      <div class="container-fluid">
-        <form #userForm="ngForm">
-               {{userForm.value | json}}
-              <div class="form-group">
-                  <label>Title</label>
-                  <input type="text" class="form-control" name="title" ngModel>
-                 </div>
 
-              <div class="form-group">
-                  <label>Question</label>
-                  <input type="text" class="form-control" name="question" ngModel>
-                 </div>
-              
-               <div class="form-group">
-              <select class="custom-select" name="category" ngModel>
-              <option selected>Choose your class</option>
-              <option *ngFor="let topic of topics">{{topic}}</option>
-              </select>    
-              </div>
-
-              <div class="form-check mb-3">
-                  <input type="form-check-input" ngModel name="nesto" type="checkbox">
-                  <label class="form-check-label">
-                      Nesto
-                  </label>
-              </div>
-
-            </form>
           
               
 
       </div>
-    </div>
+    
       
     <div class="col-sm-2">
       <div id="relative-links">

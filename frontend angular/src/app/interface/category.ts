@@ -1,7 +1,9 @@
 import { IQuestion } from './question';
 
-export interface ICategory{
-    id: number,
-    name: string,
-    questions: Array<IQuestion>
+export class ICategory{
+    public id: number;
+    public name: string;
+    public questions: Array<IQuestion>;
+
+constructor(){}
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-content',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  topics=["Angular","React","Vue"];// Zemi categorii
+ 
 
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit() {
+    
   }
+
 
 }

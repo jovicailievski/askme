@@ -8,13 +8,13 @@ import { CategoryService } from '../category.service';
 })
 export class CategoryprobaComponent implements OnInit {
 
-  public category=[];
+  public categories=[];
 
   constructor( private _categoryService: CategoryService) { }
 
   ngOnInit() {
     this._categoryService.getCat()
-    .subscribe(data => this.category=data);
+    .subscribe(data => this.categories=data);
   }
 
 }
