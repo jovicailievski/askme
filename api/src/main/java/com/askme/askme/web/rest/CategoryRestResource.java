@@ -4,10 +4,7 @@ import com.askme.askme.models.Category;
 import com.askme.askme.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -20,7 +17,7 @@ public class CategoryRestResource {
     private CategoryService categoryService;
 
     @PostConstruct
-    private void init(){
+    private void init() {
         Category c = new Category();
         c.setName("TestingOne");
         categoryService.save(c);
@@ -48,13 +45,18 @@ public class CategoryRestResource {
 
     @GetMapping("/categories")
 //    @PreAuthorize("isAuthenticated()")
-    public List<Category> getAllCategories(){
-        return  categoryService.findAll();
+    public List<Category> getAllCategories() {
+        return categoryService.findAll();
     }
 
     @GetMapping("/category/{id}")
-    public Category getCategoryById(@PathVariable("id") Long id){
+    public Category getCategoryById(@PathVariable("id") Long id) {
         return categoryService.findById(id);
+    }
+
+    @PostMapping("/category")
+    public Category addCategory(@RequestBody Category category) {
+        return categoryService.save(category);
     }
 
 }

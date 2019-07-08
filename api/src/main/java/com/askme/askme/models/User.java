@@ -1,5 +1,6 @@
 package com.askme.askme.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -18,18 +19,22 @@ public class User implements UserDetails {
 
     private String username;
 
+    @JsonIgnore
     private String password;
 
     @ManyToOne
     private UserRole userRole;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Question> questions;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Answer> answers;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Vote> votes;
 
     public UserRole getUserRole() {

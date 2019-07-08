@@ -66,10 +66,11 @@ public class UserRestResource {
     }
     @PostMapping("/register")
     public User createNewUser(@RequestParam("username") String username, @RequestParam("password") String password){
-        UserRole ur = userRoleService.findById(2l);
+        UserRole ur = new UserRole();
+        ur.setId(2l);
         User u = new User();
         u.setUsername(username);
-        u.setPassword(passwordEncoder.encode(password));
+        u.setPassword(password);
         u.setUserRole(ur);
         return userService.save(u);
     }

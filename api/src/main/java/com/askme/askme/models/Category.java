@@ -1,5 +1,7 @@
 package com.askme.askme.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Question> questions;
 
     public Category() {

@@ -22,8 +22,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private JpaUserRepository userRepository;
 
-//    @Autowired
-//    private UserRoleService userRoleService;
+    @Autowired
+    private UserRoleService userRoleService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -35,6 +35,9 @@ public class UserServiceImpl implements UserService {
 //        u.setPassword(passwordEncoder.encode(u.getPassword()));
 //        UserRole ur = userRoleService.findById(u.getUserRole().getId());
 //        u.setUserRole(ur);
+        UserRole ur = userRoleService.findById(u.getUserRole().getId());
+        u.setUserRole(ur);
+        u.setPassword(passwordEncoder.encode(u.getPassword()));
         return userRepository.save(u);
     }
 

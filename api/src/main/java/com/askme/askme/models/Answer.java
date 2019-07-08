@@ -1,5 +1,7 @@
 package com.askme.askme.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,17 +12,18 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "q_id")
+//    @JsonIgnore
     private Question question;
-
-    @OneToMany(mappedBy = "answer",fetch = FetchType.LAZY)
-    private List<Vote> votes;
 
     @ManyToOne
     private User user;
 
-    private String description;
+    @OneToMany(mappedBy = "answer",fetch = FetchType.LAZY)
+    private List<Vote> votes;
 
     public Answer() {
     }

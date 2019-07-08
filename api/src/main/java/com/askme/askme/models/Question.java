@@ -1,5 +1,8 @@
 package com.askme.askme.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,6 +20,7 @@ public class Question {
     private User user;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Answer> answers;
 
     @ManyToOne
