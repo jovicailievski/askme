@@ -11,6 +11,7 @@ import { AnswserService } from '../answser.service';
 export class AddAnswerComponent implements OnInit {
 
   @Input() questionId: number;
+  @Input() answers: Array<IAnswer>;
   answer=new IAnswer();
 
   constructor(private answerService:AnswserService) 
@@ -25,11 +26,16 @@ export class AddAnswerComponent implements OnInit {
   onSubmit(){
     this.answerService.addAnswer(this.answer)
     .subscribe(
-      data => console.log("Success!", data),
-      error => console.error("Error!", error)
-      
+      data => {
+        console.log("Success!", data);
+        this.answers.push(data);
+    },
+      error => {
+        console.error("Error!", error);
+        
+      }
     )
-    location.reload();
+    // location.reload();
    }
 
 }

@@ -1,8 +1,10 @@
 <h3>{{question.title}}</h3>
 <p>{{question.description}}</p>
-<li  *ngFor="let answer of question.answers">{{answer.description}}</li>
 <p>Category:{{question.category.name}}</p>
-<app-add-answer [questionId]="questionId"></app-add-answer>
+<app-add-answer [answers]="question.answers" [questionId]="questionId"></app-add-answer>
+<br>
+<hr>
+<app-list-answers [answers]="question.answers"></app-list-answers>
 <button (click)="goPrevious()">Previos</button>
 <button (click)="goNext()">Next</button>
 

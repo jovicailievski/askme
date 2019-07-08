@@ -30,8 +30,14 @@ export class AddQuestionComponent implements OnInit {
   onSubmit(){
    this.questionService.addQuestion(this.question)
    .subscribe(
-     data => console.log("Success!", data),
-     error => console.error("Error!", error)
+     data => {
+       console.log("Success!", data);
+       
+    },
+     error => {
+       console.error("Error!", error);
+
+    }
      
    )
   }

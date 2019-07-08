@@ -24,6 +24,7 @@ export class QuestionDetailsComponent implements OnInit {
      let id=parseInt(params.get('id'));
      this.questionId=id;
    });
+   
    this.questionService.getQuestionById(this.questionId)
     .subscribe(data => this.question=data);
 
@@ -45,7 +46,7 @@ export class QuestionDetailsComponent implements OnInit {
   }
   goToQuestionsList(){
     let selectedId=this.questionId ? this.questionId : null;
-    this.router.navigate(['question', {id:selectedId}]);
+    this.router.navigate(['listquestions', {id:selectedId}]);
 
   }
 

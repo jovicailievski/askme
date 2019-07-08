@@ -17,6 +17,7 @@ import { AddAnswerComponent } from './add-answer/add-answer.component';
 import { ListQuestionsComponent } from './list-questions/list-questions.component';
 import { QuestionDetailsComponent } from './question-details/question-details.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ListAnswersComponent } from './list-answers/list-answers.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     ListQuestionsComponent,
     QuestionDetailsComponent,
     PagenotfoundComponent,
+    ListAnswersComponent,
 
   ],
   imports: [
