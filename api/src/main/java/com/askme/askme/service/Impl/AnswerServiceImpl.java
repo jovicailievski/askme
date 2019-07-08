@@ -30,8 +30,7 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public Answer save(Answer a) {
         Question q = questionService.findById(a.getQuestion().getId());
-        User u = userService.findById(a.getUser().getId());
-
+        User u = userService.findById(/*a.getUser().getId()*/ 1l);
         a.setQuestion(q);
         a.setUser(u);
 
