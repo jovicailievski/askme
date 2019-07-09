@@ -19,7 +19,7 @@ public class User implements UserDetails {
 
     private String username;
 
-    @JsonIgnore
+//    @JsonIgnore
     private String password;
 
     @ManyToOne

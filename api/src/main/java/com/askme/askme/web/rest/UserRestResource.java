@@ -64,8 +64,9 @@ public class UserRestResource {
     public String currentUserName(Authentication authentication) {
         return authentication.getName();
     }
+
     @PostMapping("/register")
-    public User createNewUser(@RequestParam("username") String username, @RequestParam("password") String password){
+    public User createNewUser(/*@RequestBody User user */@RequestParam("username") String username, @RequestParam("password") String password){
         UserRole ur = new UserRole();
         ur.setId(2l);
         User u = new User();

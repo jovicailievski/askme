@@ -2,11 +2,13 @@ import { IUserRole } from './userrole';
 import { IQuestion } from './question';
 import { IAnswer } from './answer';
 
-export interface IUser{
-    id:number,
-    username: string,
-    password: string,
-    userrole:IUserRole,
-    questions: Array<IQuestion>,
-    answers: Array<IAnswer>
+export class IUser{
+    public id:number;
+    public username: string;
+    public password: string;
+    public userRole: IUserRole;
+    public questions: Array<IQuestion>;
+    public answers: Array<IAnswer>;
+
+    constructor(){}
 }

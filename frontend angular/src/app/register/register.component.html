@@ -1,5 +1,26 @@
-<form method="POST" action="http://localhost:8080/rest/register">
+
+<!-- <form class="card p-3 bg-light" method="POST" action="http://localhost:8080/rest/register">
 Name:<input type="text" name="username">
 Password<input type="password" name="password">
 <input type="submit" value="register">
-</form>
+</form> -->
+
+<div id="registerContainer" style="margin-top:15px;">
+        <h2 class="text-center">Register</h2>
+        <br>
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()" class="card p-3 bg-light">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" name="username" [(ngModel)]="user.username">
+            </div>
+    
+    
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password" [(ngModel)]="user.password">
+            </div>
+    
+            <button class="btn btn-primary" type="submit">Register</button>
+    
+        </form>
+    </div>

@@ -18,6 +18,7 @@ import { ListQuestionsComponent } from './list-questions/list-questions.componen
 import { QuestionDetailsComponent } from './question-details/question-details.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ListAnswersComponent } from './list-answers/list-answers.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { ListAnswersComponent } from './list-answers/list-answers.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [CategoryService,QuestionService,AnswserService],
+  providers: [CategoryService,QuestionService,AnswserService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

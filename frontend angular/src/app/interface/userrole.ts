@@ -1,4 +1,6 @@
-export interface IUserRole{
-    id: number,
-    name: string
+export class IUserRole{
+    public id: number;
+    public name: string;
+    
+    constructor(){}
 }

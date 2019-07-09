@@ -1,10 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 <div id="page">
-<div id="navigation">
-<app-navigation></app-navigation>
-</div>
-<div id="route-content">
-<router-outlet></router-outlet>
-</div>
+    <!-- <div id="navigation"> -->
+        <app-navigation></app-navigation>
+    <!-- </div> -->
+    <div style="width:100%;" id="route-content">
+        <!-- <app-content></app-content> -->
+        <div class="container-flow">
+            <div class="row">
+                <div class="col-sm-2">
+                    List of categoris component to be created
+                </div>
+                <div class="col-sm-8">
+                    <router-outlet></router-outlet>
+                </div>
+
+
+                <div class="col-sm-2">
+                    <div id="relative-links">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
