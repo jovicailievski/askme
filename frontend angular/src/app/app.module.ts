@@ -19,6 +19,7 @@ import { QuestionDetailsComponent } from './question-details/question-details.co
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ListAnswersComponent } from './list-answers/list-answers.component';
 import { CookieService } from 'ngx-cookie-service';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CookieService } from 'ngx-cookie-service';
     QuestionDetailsComponent,
     PagenotfoundComponent,
     ListAnswersComponent,
+    CategoryDetailsComponent,
 
   ],
   imports: [

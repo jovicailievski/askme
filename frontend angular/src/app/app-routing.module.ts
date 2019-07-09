@@ -10,12 +10,14 @@ import { AddQuestionComponent } from './add-question/add-question.component';
 import { ListQuestionsComponent } from './list-questions/list-questions.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { QuestionDetailsComponent } from './question-details/question-details.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
 
 const routes: Routes = [
   { path: '',redirectTo: 'content', pathMatch: 'full'},
   {path: 'categories', component: CategoryprobaComponent},
   {path: 'listquestions', component: ListQuestionsComponent},
   {path: 'question/:id', component: QuestionDetailsComponent},
+  {path: 'category/:id', component: CategoryDetailsComponent},
   {path: 'addquestion', component: AddQuestionComponent},
   {path: 'register', component:RegisterComponent },
   {path: 'content', component: ContentComponent},
@@ -31,4 +33,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents=[ContentComponent,FooterComponent,QuestionDetailsComponent,LoginComponent,ProfileComponent,CategoryprobaComponent,ListQuestionsComponent,PagenotfoundComponent]
+export const routingComponents=[ContentComponent,FooterComponent,QuestionDetailsComponent,LoginComponent,ProfileComponent,CategoryprobaComponent,ListQuestionsComponent,PagenotfoundComponent,CategoryDetailsComponent]

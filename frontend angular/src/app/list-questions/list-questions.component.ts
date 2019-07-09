@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { QuestionService } from '../question.service';
 import {Router} from '@angular/router';
+import { IQuestion } from '../interface/question';
 
 @Component({
   selector: 'app-list-questions',
@@ -9,13 +10,18 @@ import {Router} from '@angular/router';
 })
 export class ListQuestionsComponent implements OnInit {
 
-  questions=[];
+  
+  @Input() questions = [];
 
   constructor(private questionService: QuestionService, private router: Router) { }
 
   ngOnInit() {
+    if(this.questions.length < 1){
     this.questionService.getQuestions()
     .subscribe(data => this.questions=data);
+    }
+    
+
   }
 
   onSelect(question){

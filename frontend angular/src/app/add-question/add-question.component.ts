@@ -32,6 +32,7 @@ export class AddQuestionComponent implements OnInit {
    .subscribe(
      data => {
        console.log("Success!", data);
+       location.reload();
        
     },
      error => {

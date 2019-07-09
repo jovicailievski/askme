@@ -1,6 +1,7 @@
 package com.askme.askme.web.rest;
 
 import com.askme.askme.models.Category;
+import com.askme.askme.models.Question;
 import com.askme.askme.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -52,6 +53,12 @@ public class CategoryRestResource {
     @GetMapping("/category/{id}")
     public Category getCategoryById(@PathVariable("id") Long id) {
         return categoryService.findById(id);
+    }
+
+    @GetMapping("/category/{id}/questions")
+    public List<Question> getQuestionsByCategory(@PathVariable Long id){
+        Category c = categoryService.findById(id);
+        return c.getQuestions();
     }
 
     @PostMapping("/category")
