@@ -22,4 +22,8 @@ export class CategoryService {
   getCategoryQuestions(id:number):Observable<IQuestion[]>{
       return this.http.get<IQuestion[]>(this._baseUrl + id + "/questions");
   }
+
+  getCategoryById(id:number):Observable<ICategory>{
+    return this.http.get<ICategory>(this._baseUrl + id);
+  }
 }

@@ -3,6 +3,7 @@ package com.askme.askme.service.Impl;
 import com.askme.askme.exceptions.AnswerNotFoundException;
 import com.askme.askme.models.Answer;
 import com.askme.askme.models.Projections.AnswerProjection;
+import com.askme.askme.models.Projections.UserProjection;
 import com.askme.askme.models.Question;
 import com.askme.askme.models.User;
 import com.askme.askme.repository.jpa.JpaAnswerRepository;

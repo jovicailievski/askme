@@ -16,8 +16,8 @@ export class UserService {
   constructor(private http: HttpClient,private cookieService:CookieService) { }
 
   registerUser( user:IUser){
-    let param = new HttpParams().set("username",user.username).set("password",user.password);
-    return this.http.post<any>(this._registerUrl,param);
+    // let param = new HttpParams().set("username",user.username).set("password",user.password);
+    return this.http.post<any>(this._registerUrl,user);
   }
 
   loginUser( user:IUser){

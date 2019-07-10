@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../category.service';
 import { IQuestion } from '../interface/question';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ICategory } from '../interface/category';
 
 @Component({
   selector: 'app-category-details',
@@ -11,6 +12,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class CategoryDetailsComponent implements OnInit {
 
   categoryId: number;
+  category: ICategory
   questions: Array<IQuestion>;
 
   constructor(private categoryService:CategoryService,private route: ActivatedRoute) { }
@@ -27,6 +29,12 @@ export class CategoryDetailsComponent implements OnInit {
     this.categoryService.getCategoryQuestions(this.categoryId)
     .subscribe(
       (data) => {this.questions=data},
+      (error) => {console.error("error!")}
+    )
+
+    this.categoryService.getCategoryById(this.categoryId)
+    .subscribe(
+      (data) => {this.category=data},
       (error) => {console.error("error!")}
     )
   }

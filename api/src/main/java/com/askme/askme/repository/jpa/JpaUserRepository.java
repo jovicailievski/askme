@@ -1,5 +1,6 @@
 package com.askme.askme.repository.jpa;
 
+import com.askme.askme.models.Projections.UserProjection;
 import com.askme.askme.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -9,5 +10,5 @@ public interface JpaUserRepository extends JpaRepository<User,Long> {
 
     User save(User u);
     User findByUsername(String username);
-    List<User> findAll();
+    List<UserProjection> findAllBy();
 }

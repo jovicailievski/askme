@@ -19,7 +19,15 @@ public class User implements UserDetails {
 
     private String username;
 
-//    @JsonIgnore
+    private String firstName;
+
+    private String lastName;
+
+    private String profileImgUrl;
+
+    @Column(length = 2000)
+    private String profileDescription;
+
     private String password;
 
     @ManyToOne
@@ -36,6 +44,38 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Vote> votes;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getProfileImgUrl() {
+        return profileImgUrl;
+    }
+
+    public void setProfileImgUrl(String profileImgUrl) {
+        this.profileImgUrl = profileImgUrl;
+    }
+
+    public String getProfileDescription() {
+        return profileDescription;
+    }
+
+    public void setProfileDescription(String profileDescription) {
+        this.profileDescription = profileDescription;
+    }
 
     public UserRole getUserRole() {
         return userRole;

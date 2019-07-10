@@ -3,6 +3,7 @@ package com.askme.askme.web.rest;
 
 import java.security.Principal;
 
+import com.askme.askme.models.Projections.UserProjection;
 import com.askme.askme.models.Question;
 import com.askme.askme.models.User;
 import com.askme.askme.models.UserRole;
@@ -46,7 +47,11 @@ public class UserRestResource {
 
         ur = userRoleService.findById(2L);
         u.setUserRole(ur);
-        u.setUsername("anonymous");
+        u.setUsername("sveto");
+        u.setProfileImgUrl("https://gix.uw.edu/wp-content/uploads/2019/01/photo-placeholder.jpeg");
+        u.setFirstName("Svetislav");
+        u.setLastName("Georgievski");
+        u.setProfileDescription("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
         u.setPassword(passwordEncoder.encode("anonymous"));
         userService.save(u);
     }
@@ -74,13 +79,10 @@ public class UserRestResource {
     }
 
     @PostMapping("/register")
-    public User createNewUser(/*@RequestBody User user */@RequestParam("username") String username, @RequestParam("password") String password){
+    public User createNewUser(@RequestBody User user ){
         UserRole ur = new UserRole();
         ur.setId(2l);
-        User u = new User();
-        u.setUsername(username);
-        u.setPassword(password);
-        u.setUserRole(ur);
-        return userService.save(u);
+        user.setUserRole(ur);
+        return userService.save(user);
     }
 }

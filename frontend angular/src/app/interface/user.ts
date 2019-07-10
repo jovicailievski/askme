@@ -9,6 +9,10 @@ export class IUser{
     public userRole: IUserRole;
     public questions: Array<IQuestion>;
     public answers: Array<IAnswer>;
+    public firstName: string;
+    public lastName: string;
+    public profileImgUrl: string;
+    public profileDescription: string;
 
     constructor(){}
 }

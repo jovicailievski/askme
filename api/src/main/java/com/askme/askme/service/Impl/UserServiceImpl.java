@@ -1,10 +1,10 @@
 package com.askme.askme.service.Impl;
 
 import com.askme.askme.exceptions.UserNotFoundException;
+import com.askme.askme.models.Projections.UserProjection;
 import com.askme.askme.models.User;
 import com.askme.askme.models.UserRole;
 import com.askme.askme.repository.jpa.JpaUserRepository;
-import com.askme.askme.repository.jpa.JpaUserRoleRepository;
 import com.askme.askme.service.UserRoleService;
 import com.askme.askme.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
