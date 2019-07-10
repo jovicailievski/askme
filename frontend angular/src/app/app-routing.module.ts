@@ -11,6 +11,7 @@ import { ListQuestionsComponent } from './list-questions/list-questions.componen
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { QuestionDetailsComponent } from './question-details/question-details.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const routes: Routes = [
   { path: '',redirectTo: 'content', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'listquestions', component: ListQuestionsComponent},
   {path: 'question/:id', component: QuestionDetailsComponent},
   {path: 'category/:id', component: CategoryDetailsComponent},
+  {path: 'user/:id', component: UserDetailsComponent},
   {path: 'addquestion', component: AddQuestionComponent},
   {path: 'register', component:RegisterComponent },
   {path: 'content', component: ContentComponent},
@@ -33,4 +35,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents=[ContentComponent,FooterComponent,QuestionDetailsComponent,LoginComponent,ProfileComponent,CategoryprobaComponent,ListQuestionsComponent,PagenotfoundComponent,CategoryDetailsComponent]
+export const routingComponents=[ContentComponent,FooterComponent,QuestionDetailsComponent,LoginComponent,ProfileComponent,CategoryprobaComponent,ListQuestionsComponent,PagenotfoundComponent,CategoryDetailsComponent,UserDetailsComponent]

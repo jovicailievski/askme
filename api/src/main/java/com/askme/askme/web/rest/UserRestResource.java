@@ -2,6 +2,8 @@ package com.askme.askme.web.rest;
 
 
 import java.security.Principal;
+
+import com.askme.askme.models.Question;
 import com.askme.askme.models.User;
 import com.askme.askme.models.UserRole;
 import com.askme.askme.service.UserRoleService;
@@ -58,6 +60,12 @@ public class UserRestResource {
     @GetMapping("/user/{id}")
     public User getUserById(@PathVariable("id") Long id){
        return userService.findById(id);
+    }
+
+    @GetMapping("/user/{id}/questions")
+    public List<Question> getUserQuestions(@PathVariable("id") Long id){
+        User u = userService.findById(id);
+        return u.getQuestions();
     }
 
     @GetMapping("/username")

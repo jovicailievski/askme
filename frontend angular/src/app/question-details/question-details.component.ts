@@ -23,9 +23,13 @@ export class QuestionDetailsComponent implements OnInit {
    this.route.paramMap.subscribe((params: ParamMap)=>{
      let id=parseInt(params.get('id'));
      this.questionId=id;
+     this.updateData();
    });
-   
-   this.questionService.getQuestionById(this.questionId)
+  
+  }
+
+  updateData(){
+    this.questionService.getQuestionById(this.questionId)
     .subscribe(data => this.question=data);
 
    this.questionService.getQuestionAnswers(this.questionId)

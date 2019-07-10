@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { QuestionService } from '../question.service';
 import {Router} from '@angular/router';
 import { IQuestion } from '../interface/question';
+import { IUser } from '../interface/user';
 
 @Component({
   selector: 'app-list-questions',
@@ -26,6 +27,10 @@ export class ListQuestionsComponent implements OnInit {
 
   onSelect(question){
        this.router.navigate(['/question',question.id]);
+  }
+
+  onSelectUser(user:IUser){
+    this.router.navigate(['/user',user.id]);
   }
 
 }
